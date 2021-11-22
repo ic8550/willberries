@@ -4,6 +4,8 @@ const getGoods = () => {
   const links = document.querySelectorAll('.navigation-link');
   // console.log(links);
 
+  const viewAllBtn = document.querySelector('.more');
+
   const renderGoods = (goods) => {
     // console.log(goods);
     const goodsContainer = document.querySelector('.long-goods-list');
@@ -76,6 +78,11 @@ const getGoods = () => {
   ) {
     renderGoods(JSON.parse(localStorage.getItem(`goods`)));
   }
+
+  viewAllBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    getData();
+  });
 };
 
 getGoods();
