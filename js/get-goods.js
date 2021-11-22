@@ -7,7 +7,11 @@ const getGoods = () => {
       `https://willberries-9c880-default-rtdb.europe-west1.firebasedatabase.app/goods.json/`
     )
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        // console.log(data);
+        localStorage.setItem(`goods`, JSON.stringify(data));
+        // console.log(localStorage);
+      });
   };
 
   links.forEach((link) => {
@@ -17,16 +21,6 @@ const getGoods = () => {
     });
   });
 
-  window.localStorage.setItem(`goods`, JSON.stringify([1, 2, 3, 4, 5]));
-
-  const goods = localStorage.goods;
-  console.log(goods);
-
-  console.log(localStorage);
-
-  localStorage.removeItem(`goods`);
-
-  console.log(localStorage);
-};
+};;
 
 getGoods();
