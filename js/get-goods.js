@@ -79,10 +79,12 @@ const getGoods = () => {
     renderGoods(JSON.parse(localStorage.getItem(`goods`)));
   }
 
-  viewAllBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    getData();
-  });
+  if (viewAllBtn) {
+    viewAllBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      getData();
+    });
+  }
 };
 
 getGoods();
