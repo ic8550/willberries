@@ -1,8 +1,7 @@
 const smoothScroll = () => {
   const links = document.querySelectorAll(`.scroll-link`);
-  console.log(links);
 
-  const handleScrollTopClick = (event) => {
+  const scrollToTop = (event) => {
     event.preventDefault();
     window.scrollTo({
       top: 0,
@@ -11,8 +10,7 @@ const smoothScroll = () => {
   };
 
   links.forEach((link) => {
-    console.log(link);
-    link.addEventListener(`click`, handleScrollTopClick);
+    link.addEventListener(`click`, scrollToTop);
   });
 };
 
