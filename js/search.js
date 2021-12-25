@@ -15,28 +15,23 @@ const search = function () {
       const productBlock = document.createElement('div');
       productBlock.classList.add('col-lg-3');
       productBlock.classList.add('col-sm-6');
+      const prodLabel = product.label ? '' : 'd-none';
       productBlock.innerHTML = `
-          <div class="goods-card">
-            <span class="label ${product.label ? '' : 'd-none'}">${
-        product.label
-      }</span>
-            <!-- /.label -->
-            <img src="db/${product.img}" alt="image: ${
-        product.name
-      }" class="goods-image">
-            <h3 class="goods-title">${product.name}</h3>
-            <!-- /.goods-title -->
-            <p class="goods-description">${product.description}</p>
-            <!-- /.goods-description -->
-            <button class="button goods-card-btn add-to-cart" data-id=${
-              product.id
-            }>
-              <span class="button-price">$${product.price}</span>
-            </button>
-            <!-- /.goods-price -->
-          </div>
-          <!-- /.goods-card -->
-        `;
+        <div class="goods-card">
+          <span class="label ${prodLabel}">${product.label}</span>
+          <!-- /.label -->
+          <img src="db/${product.img}" alt="image: ${product.name}" class="goods-image">
+          <h3 class="goods-title">${product.name}</h3>
+          <!-- /.goods-title -->
+          <p class="goods-description">${product.description}</p>
+          <!-- /.goods-description -->
+          <button class="button goods-card-btn add-to-cart" data-id=${product.id}>
+            <span class="button-price">$${product.price}</span>
+          </button>
+          <!-- /.goods-price -->
+        </div>
+        <!-- /.goods-card -->
+      `;
       // console.log(product);
       productsContainer.append(productBlock);
     });
